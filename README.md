@@ -1,5 +1,5 @@
 ## where-type
---------------------------------
+
 #### introduce
 ```
   1. judge assign data type
