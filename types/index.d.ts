@@ -1,4 +1,17 @@
 type IFn = <T>(value: T) => boolean
+type IType =
+  | number
+  | boolean
+  | string
+  | null
+  | object
+  | Array
+  | Date
+  | Error
+  | Function
+  | symbol
+  | Math
+  | JSON
 
 interface ITypes<T = IFn> {
   isNumber: T
@@ -14,7 +27,7 @@ interface ITypes<T = IFn> {
   isMath: T
   isJson: T
   _: Omit<ITypes, '-'>
-  getTypes: <T>(value: T | T[]) => string[]
+  getTypes: (value: IType | any[]) => string[]
 }
 
 declare const types: ITypes
