@@ -13,7 +13,7 @@ type IType =
   | Math
   | JSON
 
-interface ITypes<T = IFn> {
+interface ITypes<T = IFn<IType>> {
   isNumber: T
   isBoolean: T
   isString: T
