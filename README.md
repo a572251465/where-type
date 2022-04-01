@@ -46,8 +46,8 @@
     ...
   getTypes
     parameter: string or array
-    if parameter is string, return type is string
-      getTypes('1') // string
+    if parameter is any vlaue, return type is string[]
+      getTypes('1') // [string]
     is parameter is array, Type is returned in an array 
       getTypes([1, '2', false]) // [number, string, boolean]
 ```
