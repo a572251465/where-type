@@ -1,14 +1,14 @@
-const obj = {}
+const obj: Record<string, string> = {}
 
 /**
  * @author lihh
  * @description 高级函数判断数据类型
  * @param {*} type 传递的数据类型
- * @returns 返回执行函数
+ * @returns function(*): boolean
  */
-const isType = function isType(type) {
+const isType = function isType(type: string) {
   const params = String(type).toLocaleLowerCase()
-  return function specificType(value) {
+  return function specificType<T>(value: T): boolean {
     const judgeType = `[object ${params}]`
     const resultType = obj.toString.call(value).toLocaleLowerCase()
 
@@ -36,18 +36,18 @@ const isJson = isType('Json')
  * @description 用来获取数据类型
  * @param {*} value 需要获取的值 单值(非数组)/ 数组
  */
-const getTypes = function getTypes(value) {
+const getTypes = function getTypes<T>(value: T | T[]): string[] {
   // 判断是否是数组
   if (isArray(value)) {
-    return value.map((item) => {
-      const execRes = /\s+([a-zA-Z]+)/gi.exec(obj.toString.call(item))
+    return (value as T[]).map((item) => {
+      const execRes = /\s+([a-zA-Z]+)/gi.exec(obj.toString.call(item))!
       const firstWorld = execRes[0].trim().toLocaleLowerCase()
       return firstWorld
     })
   }
 
   const result = getTypes([value])
-  return result[0]
+  return result
 }
 
 const _ = {}
@@ -82,7 +82,7 @@ for (; i < allTypes.length; i += 1) {
   }
 }
 
-module.exports = {
+export default {
   isNumber,
   isBoolean,
   isNull,

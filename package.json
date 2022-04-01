@@ -1,17 +1,21 @@
 {
   "name": "where-type",
-  "version": "1.1.1",
+  "version": "1.2.8",
   "author": "lihaohao <2495041749@qq.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --ext .js,.ts,.vue . && prettier --check .",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue . && prettier --write .",
+    "lint": "eslint --ext .js,.vue . && prettier --check .",
+    "lint:fix": "eslint --fix --ext .js,.vue . && prettier --write .",
     "build": "rollup -c builds/rollup.config.js"
   },
   "files": [
-    "dist"
+    "dist/*.js",
+    "types/*.d.ts"
   ],
-  "main": "./dist/index.js",
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/a572251465/where-type.git"
@@ -33,6 +37,8 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@types/jquery": "^3.5.14",
     "@types/node": "^16.11.4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -40,9 +46,11 @@
     "eslint-plugin-import": "^2.24.1",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
-    "prettier": "^2.3.2",
+    "prettier": "^2.6.1",
     "rollup": "^2.58.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-del": "^1.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.6.3"
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [

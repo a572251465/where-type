@@ -19,7 +19,7 @@
   isNumber('1') // false
   isString('1') // true
   _.isBoolean(false) // true
-  getTypes(1) // number
+  getTypes(1) // [number]
   getTypes([1, '1']) // [number, string]
 ```
 
