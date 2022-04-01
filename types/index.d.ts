@@ -20,4 +20,5 @@ interface ITypes<T = IFn> {
 declare const types: ITypes
 declare const _: ITypes
 export { _ }
-export default types
+// = export default types  tsconfig.json中配置属性【esModuleInterop】为true
+export = types
