@@ -4,12 +4,14 @@
 ```
   1. judge assign data type
   2. computed get assign data type
+  3. support import method: cjs and esm
 ```
 
 #### install
 ```
-  1. npm install where-type -D
-  2. yarn add where-type -D
+  1. npm install where-type -S
+  2. yarn add where-type -S
+  3. pnpm install where-type -S
 ```
 
 #### use
@@ -21,6 +23,12 @@
   _.isBoolean(false) // true
   getTypes(1) // [number]
   getTypes([1, '1']) // [number, string]
+
+  // OR
+
+  import types, {isNumber} from 'where-type'
+  types.isNumber(1) // true
+  isNumber(1) // true
 ```
 
 #### global api
